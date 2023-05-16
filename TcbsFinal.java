@@ -16,6 +16,10 @@ public class TcbsFinal extends JFrame implements ActionListener {
     private JLabel passwordLabel;
     private JTextField usernameField;
     private JPasswordField passwordField;
+    private JLabel leaveAfterLabel;
+    private JTextField leaveAfterField;
+    private JLabel leaveAfterMembersLabel;
+    private JTextField leaveAfterMembersField;
     private JLabel classLabel;
     private JLabel nameLabel;
     private JLabel timeLabel;
@@ -53,11 +57,17 @@ public class TcbsFinal extends JFrame implements ActionListener {
         passwordLabel = new JLabel("Password");
         passwordField = new JPasswordField(20);
 
+        leaveAfterLabel = new JLabel("Leave After(minutes)");
+        leaveAfterField = new JTextField(20);
+
+        leaveAfterMembersLabel = new JLabel("Left After Members Remain");
+        leaveAfterMembersField = new JTextField(20);
+
         classLabel = new JLabel("Class Number");
         nameLabel = new JLabel("Team Name");
         timeLabel = new JLabel("Class Time");
 
-        String times[] = { "8:30-10:00", "10:05-11:35", "11:40-1:10" };
+        String times[] = { "16:13-17:40", "10:05-11:35", "11:40-1:10" };
         classOneLabel = new JLabel("Class One");
         classOneField = new JTextField(20);
         classOneBox = new JComboBox<>(times);
@@ -96,11 +106,15 @@ public class TcbsFinal extends JFrame implements ActionListener {
         panelFive.add(submitButton);
         panelFive.add(executeButton);
 
-        Panel mainPanel = new Panel(new GridLayout(6, 2));
+        Panel mainPanel = new Panel(new GridLayout(8, 2));
         mainPanel.add(usernameLabel);
         mainPanel.add(usernameField);
         mainPanel.add(passwordLabel);
         mainPanel.add(passwordField);
+        mainPanel.add(leaveAfterLabel);
+        mainPanel.add(leaveAfterField);
+        mainPanel.add(leaveAfterMembersLabel);
+        mainPanel.add(leaveAfterMembersField);
         mainPanel.add(classLabel);
         mainPanel.add(panelOne);
         mainPanel.add(classOneLabel);
@@ -122,7 +136,7 @@ public class TcbsFinal extends JFrame implements ActionListener {
             public void run() {
 
                 TcbsFinal app = new TcbsFinal();
-                app.setSize(600, 600);
+                app.setSize(800, 800);
                 app.setVisible(true);
                 app.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -144,8 +158,8 @@ public class TcbsFinal extends JFrame implements ActionListener {
 
             if (classOneBox.getSelectedIndex() == 0) {
 
-                classOneStartTimeString = "04:21";
-                classOneMaxTimeString = "04:25";
+                classOneStartTimeString = "16:13";
+                classOneMaxTimeString = "16:18";
             }
 
             else if (classOneBox.getSelectedIndex() == 1) {
@@ -282,7 +296,7 @@ public class TcbsFinal extends JFrame implements ActionListener {
                     System.out.println("Login Profile Selected");
 
                     try {
-                        TimeUnit.SECONDS.sleep(120);
+                        TimeUnit.SECONDS.sleep(60);
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
                     }
